@@ -240,6 +240,10 @@ const EmojiSudoku = () => {
     return `${baseClass} ${selectedClass} ${patternClass} ${errorClass} hover:bg-pink-50`;
   };
 
+    const handleDifficultyChange = (value: Difficulty) => {
+    setDifficulty(value);
+  };
+
   return (
     <Card className="w-full max-w-md bg-pink-50 relative overflow-hidden">
       <CardHeader>
@@ -247,9 +251,12 @@ const EmojiSudoku = () => {
           可爱的表情数独
         </CardTitle>
         <div className="flex justify-between items-center mb-4">
-          <Select value={difficulty} onValueChange={setDifficulty}>
+          <Select
+            value={difficulty}
+            onValueChange={handleDifficultyChange}
+          >
             <SelectTrigger className="w-32 bg-white border-pink-300">
-              <SelectValue />
+              <SelectValue defaultValue="easy" />
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="easy">简单</SelectItem>
